@@ -13,7 +13,7 @@ phases:
       - gradle jacocoTestReport build
   post_build:
     commands:
-      - echo Build completed on `data`
+      - echo Build completed on `date`
 artifacts:
   files:
     - build/libs/hello-world-1.0-SNAPSHOT.jar
