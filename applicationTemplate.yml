@@ -7,7 +7,7 @@ Resources:
     Properties:
       Handler: com.huirongxing.serverless.ci.Sample::greeting
       Runtime: java8
-      CodeUri: ./
+      CodeUri: s3://codepipeline-us-east-2-991558702669/TestHelloWorldPipeli
       Description: A starter AWS Lambda function.
       MemorySize: 128
       Timeout: 30

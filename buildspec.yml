@@ -17,4 +17,3 @@ phases:
 artifacts:
   files:
     - build/libs/hello-world-1.0-SNAPSHOT.jar
-    - build/reports/**/*
