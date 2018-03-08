@@ -1,15 +1,21 @@
-import com.afrag.gradle.learning.Sample;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+
+import static org.junit.Assert.fail;
+
 import org.junit.Test;
 
+import com.huirongxing.serverless.ci.Sample;
 
-import static junit.framework.TestSuite.warning;
+import static junit.framework.TestCase.assertNotNull;
 
 
 /**
  * DOCUMENT ME!
  *
  * @author   <a href="mailto:wings.wang@hrx.ai">Wings Wang</a>
- * @version  $Revision$, 03/05/2018
+ * @version  $Revision$, 03/08/2018
  */
 public class DemoJunit {
   //~ Methods ----------------------------------------------------------------------------------------------------------
@@ -18,21 +24,17 @@ public class DemoJunit {
    * DOCUMENT ME!
    */
   @Test
-  public void failed() {
-    System.out.println("Execute failed test case");
-    warning("Not Implemente yet");
-  }
-
-  //~ ------------------------------------------------------------------------------------------------------------------
-
-  /**
-   * DOCUMENT ME!
-   */
-  @Test
   public void success() {
-    Sample obj = new Sample();
-    obj.greeting();
-    System.out.println("Execute success test case");
-  }
+    OutputStream outputStream = new ByteArrayOutputStream();
+    Sample       obj          = new Sample();
 
+    try {
+      obj.greeting(null, outputStream, null);
+      assertNotNull(outputStream.toString());
+    } catch (IOException e) {
+      e.printStackTrace();
+      fail("Should not throw exception");
+    }
+
+  }
 } // end class DemoJunit
